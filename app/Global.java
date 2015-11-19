@@ -23,7 +23,7 @@ public class Global extends GlobalSettings {
 		  
 			   System.out.print(uri);
 			   System.out.print(host);
-			MorphiaObject.mongo = new Mongo("blrwazxweuc8du7-mongodb.services.clever-cloud.com");
+			MorphiaObject.mongo = new Mongo("bne1so6syjbe6sh-mongodb.services.clever-cloud.com");
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		}
