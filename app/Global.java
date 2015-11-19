@@ -18,7 +18,7 @@ public class Global extends GlobalSettings {
 		try {
 			Configuration config = Configuration.root().getConfig("jongo");
 			String host = config.getString("mongodb.host");
-		
+
 			   String uri =config.getString("mongodb.uri");
 		  
 			   System.out.print(uri);
@@ -28,11 +28,11 @@ public class Global extends GlobalSettings {
 			e.printStackTrace();
 		}
 		Configuration config = Configuration.root().getConfig("jongo");
-	      
+	      		String test = "bne1so6syjbe6sh";
      
      
 		MorphiaObject.morphia = new Morphia();
-		MorphiaObject.datastore = MorphiaObject.morphia.createDatastore(MorphiaObject.mongo, "bne1so6syjbe6sh");
+		MorphiaObject.datastore = MorphiaObject.morphia.createDatastore(MorphiaObject.mongo, "test");
 		MorphiaObject.datastore.ensureIndexes();   
 		MorphiaObject.datastore.ensureCaps();  
 
