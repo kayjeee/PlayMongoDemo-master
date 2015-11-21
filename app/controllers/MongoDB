@@ -17,7 +17,9 @@ public final class MongoDB {
      * application exits.
      */
     public static boolean connect() {
-        String _mongoURI = Play.application().configuration().getString("mongodb.uri");
+    	Configuration config = Configuration.root().getConfig("jongo");
+    
+        String _mongoURI = config.getString("mongodb.uri");
 
         MongoClientURI mongoURI = new MongoClientURI(_mongoURI);
 
@@ -25,6 +27,7 @@ public final class MongoDB {
 
         try {
             MorphiaObject.mongo = new MongoClient(mongoURI);
+            
         }
         catch(UnknownHostException e) {
             Logger.info("Unknown Host");
@@ -36,11 +39,8 @@ public final class MongoDB {
 
             //Map classes
 
-            MorphiaObject.morphia.map(User.class);
-            MorphiaObject.morphia.map(LinkedAccount.class);
-            MorphiaObject.morphia.map(SecurityRole.class);
-            MorphiaObject.morphia.map(TokenAction.class);
-            MorphiaObject.morphia.map(UserPermission.class);
+            MorphiaObject.morphia.map(Group.class);
+       
 
             MorphiaObject.datastore.ensureIndexes();
             MorphiaObject.datastore.ensureCaps();
