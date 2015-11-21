@@ -8,28 +8,28 @@ import com.google.code.morphia.Morphia;
 import com.mongodb.Mongo;
 
 import controllers.MorphiaObject;
-
+import controllers.MongoDB;
 public class Global extends GlobalSettings {
 
 @Override
 	public void onStart(play.Application arg0) {
 		super.beforeStart(arg0);
-		Logger.debug("** onStart **"); 
-		try {
-			Configuration config = Configuration.root().getConfig("jongo");
-			String host = config.getString("mongodb.host");
+		   	Logger.debug("** onStart **");
 
-			   String uri =config.getString("mongodb.uri");
-		  
-			   System.out.print(uri);
-			   System.out.print(host);
-			MorphiaObject.mongo = new Mongo("bne1so6syjbe6sh-mongodb.services.clever-cloud.com");
+        MongoDB.connect();
+
+        MongoDB.connect();
+
+     
+	
+		try {
+		
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		}
 		Configuration config = Configuration.root().getConfig("jongo");
 	      		String test = "bne1so6syjbe6sh";
-     
+	      	
      
 		MorphiaObject.morphia = new Morphia();
 		MorphiaObject.datastore = MorphiaObject.morphia.createDatastore(MorphiaObject.mongo, "test");
